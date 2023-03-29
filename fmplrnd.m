@@ -8,13 +8,12 @@ for i=1:N
 u=rand;
 r=min(find(T>=u));
 w=t2(r);
+
 if w==5, xx=b(1)+(b(2)-b(1))*rand(1,2);
-elseif w==4, xx=fmrnd3(b(2),1,b(2),1,1);%round(J(w)*N));
-elseif
- w==3, xx=fmrnd3(b(2),1,0,b(1),1);%round(J(w)*N));
-elseif
- w==2, xx=fmrnd3(0,b(1),b(2),1,1);%round(J(w)*N));
-else xx=fmrnd3(0,b(1),0,b(1),1);%round(J(w)*N));
+elseif w==4, xx=FGM_copula_randgen(b(2),1,b(2),1,1);%round(J(w)*N));
+elseif w==3, xx=FGM_copula_randgen(b(2),1,0,b(1),1);%round(J(w)*N));
+elseif w==2, xx=FGM_copula_randgen(0,b(1),b(2),1,1);%round(J(w)*N));
+else xx=FGM_copula_randgen(0,b(1),0,b(1),1);%round(J(w)*N));
 end
 
 x=[x;xx];
